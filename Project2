@@ -1,0 +1,58 @@
+var readlineSync = require('readline-sync');
+var score = 0;
+
+
+console.log("         HELLO PLAYER WELCOME TO THE QUIZ .... ")
+console.log("")
+console.log("")
+var userName = readlineSync.question("what's your name ? :");
+console.log("                          welcome "+ userName + " \n\n-in In this quiz you will be asked some general knowledge question \n\n Note:-One score will be given for each correct answer\n");
+
+
+// play function
+
+function play(question,answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer === answer) {
+    console.log("congrats!!!you got one score*");
+    score = score + 1
+  } else {
+    console.log("sorry wrong answer!!");
+  }
+  
+  console.log("current score : "+ score);
+  console.log("---------------");
+}
+
+// array of objects
+var questions = [{
+  question:"Qn-1.Name of first woman of India to won Miss World Title ?\nA.Indira Gandhi B.Manusi  C.Reita Faria  D.Sakshi \n\choose any ONE option(A,B,C,D):",
+  answer: "C"
+},{
+  question: "Qn-2.Name of first woman of India to climb the mount everest ?\nA.Sarojni Naydoo B.28 Rita  C.Bachendri Pal  D.Saina NEhval\n\nchoose any ONE option(A,B,C,D):",
+  answer:"C"
+},{
+  question: "Qn-3.Who was first Indian Reserve Bank Governor?\nA.Brahmputr  B.D.P.khaitav C.Venugopal  D.:C D Deshmukh \n\nchoose any ONE option(A,B,C,D):",
+  answer:"D"
+},{
+  question: "Qn-4.Name of the first election commissioner of India\nA.Hrishchandra  B.Ramakisan  C.Sukumar Sen  D.c.d deskmukh \n\choose any ONE option(A,B,C,D):",
+  answer:"C"
+},{
+  question: "Qn-5.Name of the first university of India?\nA CDLU  B.Jawahar University C.MDSU D.Nalanda University\n\nchoose any ONE option(A,B,C,D):",
+  answer:"D"
+}];
+
+//loop
+
+for (var i=0; i<questions.length; i++) {
+  var currentQuestion = questions[i];
+  play(currentQuestion.question,currentQuestion.answer)
+}
+
+function result() {
+  console.log("Hey! You SCORED: ", score);
+}
+result()
+console.log(" ")
+console.log("THANKS FOR PLAY THE GAME!!!")
